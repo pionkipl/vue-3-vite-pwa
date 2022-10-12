@@ -6,8 +6,7 @@
   <main>
     <h2>Hello</h2>
     <h2>Second Hello</h2>
-    <p>Siema</p>
-    <p>Siema</p>
+    <h1>Nowość</h1>
   </main>
 </template>
 
