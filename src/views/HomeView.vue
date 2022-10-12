@@ -5,6 +5,9 @@
 <template>
   <main>
     <h2>Hello</h2>
+    <h2>Second Hello</h2>
+    <p>Siema</p>
+    <p>Siema</p>
   </main>
 </template>
 

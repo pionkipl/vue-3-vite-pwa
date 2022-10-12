@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import ReloadPrompt from '@/components/ReloadPrompt.vue';
 
 </script>
 
@@ -10,6 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
+      <reload-prompt />
     </div>
   </header>
 
