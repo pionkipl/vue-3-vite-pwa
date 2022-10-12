@@ -7,6 +7,7 @@
     <h2>Hello</h2>
     <h2>Second Hello</h2>
     <h1>Nowość</h1>
+    <h1>Coś nowego dla Marcina :)</h1>
   </main>
 </template>
 
