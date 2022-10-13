@@ -5,6 +5,7 @@
 <template>
   <main>
     <h1>Brand new app</h1>
+    <p>Add another text.</p>
   </main>
 </template>
 
