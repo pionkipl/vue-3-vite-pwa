@@ -42,12 +42,13 @@ function requestPermission() {
       messaging.getToken({ vapidKey: vapidKey }).then((currentToken) => {
         if (currentToken) {
           console.log('token', currentToken)
+          messaging.onMessage((payload) => {
+            console.log('Message received. ', payload);
+            // ...
+          });
         } else {
           // Show permission request UI
           console.log('No registration token available. Request permission to generate one.');
-          messaging.onMessage((payload) => {
-            console.log("onMessage event fired",payload)
-          })
         }
       }).catch((err) => {
         console.log('An error occurred while retrieving token. ', err);
