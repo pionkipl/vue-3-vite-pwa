@@ -8,6 +8,11 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [
     vue(),
+    // VitePWA({
+    //   strategies: 'injectManifest',
+    //   srcDir: 'public',
+    //   filename: 'firebase-messaging-sw.js',
+    // }),
     VitePWA(
       {
         // registerType: 'autoUpdate',
@@ -15,7 +20,7 @@ export default defineConfig({
           enabled: true
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+          globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         },
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg', 'pwa-192x192.png', 'pwa-512x512.png'],
         manifest: {

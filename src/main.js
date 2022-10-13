@@ -15,8 +15,9 @@ const updateSW = registerSW({
   },
 })
 
-import firebase from "firebase/app";
-import "firebase/messaging";
+import { initializeApp } from "firebase/app";
+import { getMessaging, getToken, onMessage } from "firebase/messaging";
+
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_KEY,
@@ -27,9 +28,10 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
   measurementId: "G-KSCPZM1BB2"
 };
-firebase.initializeApp(firebaseConfig);
 
-const messaging = firebase.messaging();
+const appFb = initializeApp(firebaseConfig);
+
+const messaging = getMessaging(appFb);
 
 const vapidKey = import.meta.env.VITE_APP_VAPID_KEY;
 
@@ -39,10 +41,10 @@ function requestPermission() {
     if (permission === 'granted') {
       console.log('Notification permission granted.');
 
-      messaging.getToken({ vapidKey: vapidKey }).then((currentToken) => {
+      getToken(messaging,{ vapidKey: vapidKey }).then((currentToken) => {
         if (currentToken) {
           console.log('token', currentToken)
-          messaging.onMessage((payload) => {
+          onMessage(messaging, (payload) => {
             console.log('Message received. ', payload);
             // ...
           });
