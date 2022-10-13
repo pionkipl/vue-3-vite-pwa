@@ -15,8 +15,8 @@ const updateSW = registerSW({
   },
 })
 
-import { initializeApp } from "firebase/app";
-import { getMessaging, getToken } from "firebase/messaging";
+import firebase from "firebase/app";
+import "firebase/messaging";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_KEY,
@@ -27,39 +27,38 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
   measurementId: "G-KSCPZM1BB2"
 };
+firebase.initializeApp(firebaseConfig);
 
-// Initialize Firebase
-const appfb = initializeApp(firebaseConfig);
-
-const messaging = getMessaging(appfb);
+const messaging = firebase.messaging();
 
 const vapidKey = import.meta.env.VITE_APP_VAPID_KEY;
-
-getToken(messaging, { vapidKey:  vapidKey}).then((currentToken) => {
-  if (currentToken) {
-    console.log('hello')
-    // Send the token to your server and update the UI if necessary
-    // ...
-  } else {
-    // Show permission request UI
-    console.log('No registration token available. Request permission to generate one.');
-    // ...
-  }
-}).catch((err) => {
-  console.log('An error occurred while retrieving token. ', err);
-  // ...
-});
 
 function requestPermission() {
   console.log('Requesting permission...');
   Notification.requestPermission().then((permission) => {
     if (permission === 'granted') {
       console.log('Notification permission granted.');
+
+      messaging.getToken({ vapidKey: vapidKey }).then((currentToken) => {
+        if (currentToken) {
+          console.log('token', currentToken)
+        } else {
+          // Show permission request UI
+          console.log('No registration token available. Request permission to generate one.');
+          messaging.onMessage((payload) => {
+            console.log("onMessage event fired",payload)
+          })
+        }
+      }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+        // ...
+      });
     }
   })
 }
 
 requestPermission();
+
 
 const app = createApp(App)
 
