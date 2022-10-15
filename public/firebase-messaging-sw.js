@@ -1,6 +1,8 @@
 importScripts('https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js')
 importScripts('https://www.gstatic.com/firebasejs/9.12.1/firebase-messaging-compat.js')
 
+console.log('fb loaded');
+
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAvmdBkmAuS3885V0pP0iwwxZhSACYa11I',
