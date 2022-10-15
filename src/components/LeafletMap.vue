@@ -5,8 +5,10 @@
 </template>
 
 <script setup>
-  import { map, tileLayer, marker } from "leaflet";
+  import { map, tileLayer, marker, icon } from "leaflet";
   import { onMounted, onBeforeUnmount, ref, watch } from "vue";
+
+  import markerIcon from '@/assets/img/marker-icon.png';
 
   const props = defineProps({
     long: Number,
@@ -18,6 +20,10 @@
 
   let container = null;
   let markerOnMap = null;
+
+  const myIcon = icon({
+    iconUrl: markerIcon
+  })
 
   onMounted(() => {
     container = map("map").setView([51.959, -8.623], 2);
@@ -32,9 +38,12 @@
   });
 
   watch(() => props.long, (newValue, oldValue) => {
-    if (newValue) {
-      markerOnMap = marker([props.lat, props.long]).addTo(container);
+    if (newValue && oldValue === null) {
+      markerOnMap = marker([props.lat, props.long], {icon: myIcon}).addTo(container);
       container.flyTo([props.lat, props.long], 16)
+    }
+    if (newValue && oldValue !== null) {
+      markerOnMap.setLatLng([props.lat, props.long]);
     }
   });
 
