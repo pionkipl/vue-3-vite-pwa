@@ -5,13 +5,13 @@
       <p>Longtitude - {{ longitude }}</p>
       <p>Latitude - {{ latitude }}</p>
     </section>
-    <section v-else class="dynamic">
-      <h2>Dynaminc - for mobile</h2>
-      <p>Longtitude - {{ longitudeDynamic }}</p>
-      <p>Latitude - {{ latitudeDynamic }}</p>
+    <section class="dynamic">
       <div class="dynamic-buttons">
         <button @click="clearWatch(idPosition)">Don't Geo</button>
       </div>
+      <h2>Dynaminc - for mobile</h2>
+      <p>Longtitude - {{ longitudeDynamic }}</p>
+      <p>Latitude - {{ latitudeDynamic }}</p>
     </section>
     <section class="map">
       <leaflet-map v-if="whatDeviceType === 'desktop'" :long="longitude" :lat="latitude"></leaflet-map>
@@ -108,6 +108,12 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
+
+        @media screen and (max-width: 768px) {
+          position: relative;
+          top: 0;
+          left: 0;
+        }
       }
 
       button {
