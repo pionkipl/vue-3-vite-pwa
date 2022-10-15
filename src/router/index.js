@@ -8,6 +8,11 @@ const router = createRouter({
       name: 'home',
       component: () => import('../views/HomeView.vue')
     },
+    {
+      path: '/geolocation',
+      name: 'geolocation',
+      component: () => import('../views/GeolocationView.vue')
+    },
   ]
 })
 

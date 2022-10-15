@@ -9,7 +9,7 @@ import ReloadPrompt from '@/components/ReloadPrompt.vue';
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/geolocation">Map</RouterLink>
       </nav>
       <reload-prompt />
     </div>
