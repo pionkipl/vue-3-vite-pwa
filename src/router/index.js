@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'geolocation',
       component: () => import('../views/GeolocationView.vue')
     },
+    {
+      path: '/camera',
+      name: 'camera',
+      component: () => import('../views/CameraView.vue')
+    },
   ]
 })
 

@@ -5,7 +5,7 @@
       <p>Longtitude - {{ longitude }}</p>
       <p>Latitude - {{ latitude }}</p>
     </section>
-    <section class="dynamic">
+    <section v-else class="dynamic">
       <div class="dynamic-buttons">
         <button @click="clearWatch(idPosition)">Don't Geo</button>
       </div>
@@ -90,6 +90,10 @@
     margin-top: 2rem;
     p {
       font-size: 3rem;
+
+      @media screen and (max-width: 1000px) {
+        font-size: 1rem;
+      }
     }
 
     .static {
