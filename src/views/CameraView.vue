@@ -63,14 +63,15 @@
 
   const toggleCamera = () => {
     if (video.facingMode === 'user') {
-      video.facingMode = 'environment';
+      constraints.video.facingMode = 'environment';
+      navigator.mediaDevices.getUserMedia(constraints)
     } else {
-      video.facingMode = 'user';
+      constraints.video.facingMode = 'user';
+      navigator.mediaDevices.getUserMedia(constraints)
     }
   }
 
   const pause = () => {
-    console.log('video',video)
     for (const track of video.srcObject.getTracks()) {
       track.stop();
     }
