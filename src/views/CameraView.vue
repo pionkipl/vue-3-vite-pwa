@@ -64,10 +64,12 @@
   const toggleCamera = () => {
     if (constraints.video.facingMode === 'user') {
       constraints.video.facingMode = 'environment';
-      navigator.mediaDevices.getUserMedia(constraints)
+      pause();
+      startCamera();
     } else {
       constraints.video.facingMode = 'user';
-      navigator.mediaDevices.getUserMedia(constraints)
+      pause();
+      startCamera();
     }
   }
 
