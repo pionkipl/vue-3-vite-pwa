@@ -37,18 +37,20 @@
   let video = null;
 
   const startCamera = () => {
-    navigator.mediaDevices.getUserMedia(constraints)
-        .then((mediaStream) => {
-          video = document.querySelector('video');
-          video.srcObject = mediaStream;
-          video.onloadedmetadata = () => {
-            video.play();
-          };
-        })
-        .catch((err) => {
-          // always check for errors at the end.
-          console.error(`${err.name}: ${err.message}`);
-        });
+    if (video === null) {
+      navigator.mediaDevices.getUserMedia(constraints)
+          .then((mediaStream) => {
+            video = document.querySelector('video');
+            video.srcObject = mediaStream;
+            video.onloadedmetadata = () => {
+              video.play();
+            };
+          })
+          .catch((err) => {
+            // always check for errors at the end.
+            console.error(`${err.name}: ${err.message}`);
+          });
+    }
   }
 
   const videoRef = ref(null)
@@ -74,14 +76,21 @@
   }
 
   const pause = () => {
-    for (const track of video.srcObject.getTracks()) {
-      track.stop();
+    if (video && video.srcObject !== null) {
+      for (const track of video.srcObject.getTracks()) {
+        track.stop();
+      }
+      video.srcObject = null;
+      video = null;
     }
-    video.srcObject = null;
-    video = null;
   }
 
-  onUnmounted(() => pause())
+
+  onUnmounted(() => {
+    if (video && video.srcObject !== null) {
+      pause();
+    }
+  })
 </script>
 
 <style scoped lang="scss">
