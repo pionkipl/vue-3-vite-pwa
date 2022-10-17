@@ -18,6 +18,11 @@ const router = createRouter({
       name: 'camera',
       component: () => import('../views/CameraView.vue')
     },
+    {
+      path: '/device',
+      name: 'device',
+      component: () => import('../views/DeviceFeatures.vue')
+    },
   ]
 })
 

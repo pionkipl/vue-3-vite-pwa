@@ -11,6 +11,7 @@ import ReloadPrompt from '@/components/ReloadPrompt.vue';
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/geolocation">Map</RouterLink>
         <RouterLink to="/camera">Camera</RouterLink>
+        <RouterLink to="/device">Device</RouterLink>
       </nav>
       <reload-prompt />
     </div>
