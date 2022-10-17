@@ -23,6 +23,11 @@ const router = createRouter({
       name: 'device',
       component: () => import('../views/DeviceFeatures.vue')
     },
+    {
+      path: '/speech',
+      name: 'speech',
+      component: () => import('../views/SpeechView.vue')
+    },
   ]
 })
 

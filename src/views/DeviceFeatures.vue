@@ -45,9 +45,9 @@
 </script>
 
 <style scoped>
-  .device-feature {
-    background-color: #2c3e50;
+  .device-feature {  background-color: #2c3e50;
     padding: 2rem;
     margin-top: 1rem;
+
   }
 </style>

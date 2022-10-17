@@ -12,6 +12,7 @@ import ReloadPrompt from '@/components/ReloadPrompt.vue';
         <RouterLink to="/geolocation">Map</RouterLink>
         <RouterLink to="/camera">Camera</RouterLink>
         <RouterLink to="/device">Device</RouterLink>
+        <RouterLink to="/speech">Speech</RouterLink>
       </nav>
       <reload-prompt />
     </div>
@@ -21,7 +22,15 @@ import ReloadPrompt from '@/components/ReloadPrompt.vue';
 </template>
 
 <style scoped>
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
   nav a {
-    margin-right: 1rem;
+    margin: 1rem 1rem 0 0;
+    padding: 0.5rem;
+    background-color: #2c3e50;
+    font-weight: 700;
+
   }
 </style>
