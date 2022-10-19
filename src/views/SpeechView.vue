@@ -9,7 +9,7 @@
                class="button">Delete</button>
     </div>
     <div class="speech__text">
-      <textarea class="speech__area">{{ area }}</textarea>
+      <textarea class="speech__area" disabled>{{ area }}</textarea>
     </div>
 
   </div>
@@ -20,6 +20,9 @@
 
   const SpeechRecognition = webkitSpeechRecognition || window.SpeechRecognition;
   const recognition = new SpeechRecognition();
+
+  recognition.maxAlternatives = 1;
+
 
   const area = ref('')
 
@@ -32,11 +35,21 @@
     recognition.stop();
   }
 
+  let color;
+
   recognition.onresult = (event) => {
     let transcript = '';
+    console.log(event)
     for (let i = event.resultIndex; i < event.results.length; ++i) {
-      area.value += event.results[i][0].transcript;
+      if (event.results[i].isFinal) {
+        area.value += event.results[i][0].transcript;
+      }
     }
+
+    color = event.results[event.results.length - 1][0].transcript.toLowerCase().replace(/\s/g, '');
+
+    document.body.style.backgroundColor = color;
+    
   }
 
   const deleteText = () => {
@@ -92,6 +105,10 @@
        border: none;
        outline: none;
      }
+
+    &:disabled {
+      background-color: #fff;
+    }
    }
  }
 </style>
