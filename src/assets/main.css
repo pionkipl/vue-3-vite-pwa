@@ -1,6 +1,7 @@
 @import "./base.css";
 @import 'leaflet/dist/leaflet.css';
 @import "./button.scss";
+@import "./tailwind.scss";
 
 #app {
   max-width: 1280px;
