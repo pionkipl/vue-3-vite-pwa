@@ -1,6 +1,6 @@
 <template>
   <div class="camera-view">
-    <h1>Video:</h1>
+    <h1 class="text-3xl">Video:</h1>
     <div class="camera-view__video">
       <div class="camera-view__video-container">
         <video ref="videoRef"></video>
@@ -8,14 +8,14 @@
       </div>
       <div class="camera-view__controls">
         <button @click="startCamera"
-                class="camera-view__btn">Start camera</button>
+                class="button bg-amber-400 text-black">Start camera</button>
         <button @click="pause"
-                class="camera-view__btn">Stop</button>
-        <button class="camera-view__btn change-camera" @click="toggleCamera">Change camera</button>
+                class="button bg-pink-400 text-black">Stop</button>
+        <button class="button bg-lime-400 text-black change-camera" @click="toggleCamera">Change camera</button>
         <button @click="toggleBlur"
-                class="camera-view__btn toggle-blur">Blur</button>
+                class="button bg-rose-400 text-black toggle-blur">Blur</button>
         <button @click="toggleSepia"
-                class="camera-view__btn toggle-sepia"
+                class="button bg-rose-400 text-black toggle-sepia"
         >Sepia</button>
       </div>
     </div>
