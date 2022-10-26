@@ -1,7 +1,7 @@
 <template>
   <div class="geo">
     <section class="static" v-if="whatDeviceType === 'desktop'">
-      <h2>Static - for desktop</h2>
+      <h1 class="text-xl md:text-3xl">Static - for desktop</h1>
       <p>Longtitude - {{ longitude }}</p>
       <p>Latitude - {{ latitude }}</p>
     </section>
@@ -9,7 +9,7 @@
       <div class="dynamic-buttons">
         <button @click="clearWatch(idPosition)">Don't Geo</button>
       </div>
-      <h2>Dynaminc - for mobile</h2>
+      <h1 class="text-xl md:text-3xll">Dynaminc - for mobile</h1>
       <p>Longtitude - {{ longitudeDynamic }}</p>
       <p>Latitude - {{ latitudeDynamic }}</p>
     </section>

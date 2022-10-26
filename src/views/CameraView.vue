@@ -1,6 +1,6 @@
 <template>
   <div class="camera-view">
-    <h1 class="text-3xl">Video:</h1>
+    <h1 class="text-xl md:text-3xl">Video:</h1>
     <div class="camera-view__video">
       <div class="camera-view__video-container">
         <video ref="videoRef"></video>
