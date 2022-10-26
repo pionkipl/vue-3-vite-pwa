@@ -28,6 +28,11 @@ const router = createRouter({
       name: 'speech',
       component: () => import('../views/SpeechView.vue')
     },
+    {
+      path: '/mysterious',
+      name: 'mysterious',
+      component: () => import('../views/MysteriousView.vue')
+    },
   ]
 })
 

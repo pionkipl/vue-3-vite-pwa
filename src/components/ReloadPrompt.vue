@@ -63,6 +63,12 @@ const close = async () => {
   transform: translateY(120%);
   transition: all 0.5s;
 
+  @media screen and (max-width: 500px) {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
   &.ready {
     transform: translateY(0);
   }
@@ -76,6 +82,10 @@ const close = async () => {
   margin-right: 35px;
   border-radius: 2px;
   padding: 5px 15px;
-  font-size: 28px
+  font-size: 28px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 }
 </style>
