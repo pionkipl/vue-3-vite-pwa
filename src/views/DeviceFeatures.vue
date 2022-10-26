@@ -5,7 +5,8 @@
     <h2 class="text-xl md:text-3xl mb-2">Battery</h2>
     <p class="text-xl md:text-3xl mb-2">Status: <span :class="[{'text-lime-400': batteryCharging}, {'text-pink-400': !batteryCharging}]">{{ batteryCharging ? 'Charging' : 'Not charging' }}</span></p>
     <p v-if="!batteryCharging" class="text-xl md:text-3xl mb-2">Battery Left: <span class="text-teal-400">{{ batteryDischargingTime !== null ? batteryDischargingTime / 60 : 'Estimating...' }} minutes left</span></p>
-    <p v-if="batteryCharging" class="text-xl md:text-3xl mb-2">Battery to fully charged: <span class="text-teal-400">{{ batteryChargingTime !== null ? batteryChargingTime / 60 : 'Estimating...' }} minutes</span></p>
+    <p v-if="batteryCharging && batteryLevel !== 1" class="text-xl md:text-3xl mb-2">Battery to fully charged: <span class="text-teal-400">{{ batteryChargingTime !== null ? batteryChargingTime / 60 : 'Estimating...' }} minutes</span></p>
+    <p v-if="batteryLevel === 1" class="text-xl md:text-3xl mb-2 text-lime-400 font-bold">Battery fully charged</p>
 
     <p v-if="!batteryCharging" class="text-xl md:text-2xl font-bold">Level: {{ batteryLevel * 100 }}%</p>
     <battery-component :battery="batteryLevel" v-else />

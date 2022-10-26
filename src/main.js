@@ -45,9 +45,8 @@ function requestPermission() {
 
       getToken(messaging,{ vapidKey: vapidKey }).then((currentToken) => {
         if (currentToken) {
-          console.log('token', currentToken)
           onMessage(messaging, (payload) => {
-            console.log('Message received. ', payload);
+
             // ...
           });
         } else {
