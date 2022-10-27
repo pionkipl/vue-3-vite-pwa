@@ -3,6 +3,16 @@ import { RouterView } from 'vue-router'
 import ReloadPrompt from '@/components/ReloadPrompt.vue';
 import NavComponent from "@/components/NavComponent.vue";
 import { useFadeIn, useFadeOut } from './animate/animate.js';
+import TitleBarComponent from '@/components/TitleBarComponent.vue';
+import { onMounted } from 'vue';
+
+let overlayNavigator = false;
+
+onMounted(() => {
+  if (navigator.windowControlsOverlay.visible) {
+    overlayNavigator = true;
+  }
+})
 
 </script>
 
@@ -15,6 +25,7 @@ import { useFadeIn, useFadeOut } from './animate/animate.js';
           <component :is="Component" />
         </transition>
       </router-view>
+      <TitleBarComponent v-if="overlayNavigator" />
       <reload-prompt />
     </div>
   </header>
