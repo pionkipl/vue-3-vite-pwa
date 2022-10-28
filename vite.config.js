@@ -54,7 +54,13 @@ export default defineConfig({
               src: 'masked-icon.svg',
               sizes: '512x512',
               type: 'image/svg',
-              purpose: 'any maskable'
+              purpose: 'maskable'
+            },
+            {
+              src: 'masked-icon-192.svg',
+              sizes: '192x192',
+              type: 'image/svg',
+              purpose: 'maskable'
             }
           ]
         }
